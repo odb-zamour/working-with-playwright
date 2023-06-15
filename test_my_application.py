@@ -20,24 +20,24 @@ def run(playwright: Playwright) -> None:
     page.get_by_label("Clear").check()
     person=page.get_by_text("Ian Ashman")
     person.click()
-    person.page.mouse.wheel(float(0),float(0.5))
+    person.page.mouse.wheel(float(0),float(1))
     pickedPerson = page.get_by_text("Ryan Lutchman")
     while page.locator(".ant-select-dropdown").first.is_visible() :
         try:
             pickedPerson.click(timeout=100)
         except:
-            person.page.mouse.wheel(float(0),float(0.5))
+            person.page.mouse.wheel(float(0),float(1))
     checkPerson=  page.locator("div").filter(has_text=re.compile(r"^Ryan Lutchman$")).first
     expect(checkPerson).to_be_visible()
     pickedPerson = page.get_by_text("Logistics")
     person = page.get_by_label("Specific Incident Location")
     person.click()
-    person.page.mouse.wheel(float(0),float(0.5))
+    person.page.mouse.wheel(float(0),float(1))
     while page.locator(".ant-select-dropdown").nth(1).is_visible() :
         try:
             pickedPerson.click(timeout=100)
         except:
-            person.page.mouse.wheel(float(0),float(0.5))
+            person.page.mouse.wheel(float(0),float(1))
     
     page.get_by_label("Incident Reported").click()
     page.get_by_role("cell", name="15").get_by_text("15").click()
