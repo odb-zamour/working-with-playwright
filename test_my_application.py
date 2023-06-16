@@ -42,7 +42,7 @@ def run(playwright: Playwright) -> None:
             person.page.mouse.wheel(float(0),float(1))
     '''
     page.get_by_label("Incident Reported").click()
-    hours = page.get_by_role("list").filter(has_text=re.compile(r"^000102030405060708091011121314151617181920212223$"))
+
     
     '''page.get_by_label("Occupational Illness/Personal Injury").check()
     page.locator("[id=\"__next\"] div").filter(has_text="CreateThis form is to be completed and submitted to the HSSE, Insurance & HR Dep").nth(2).click()
